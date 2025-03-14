@@ -4,7 +4,7 @@
 
 ### Organisation
 
-The project work is to be undertaken in groups of 3-4 students - preferably the same groups as for projects 1 & 2.
+The project work is to be undertaken in groups of 2-5 students - preferably the same groups as for projects 1 & 2.
 
 Discussions among the groups are allowed, but the code handed in by the group should be the work of the group members - and not members of other groups.
 
