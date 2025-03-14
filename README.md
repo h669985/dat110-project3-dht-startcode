@@ -1,10 +1,10 @@
-### Project 3 - Weeks 12 to 15: 18/03 - 14/04
+### Project 3 - Weeks 12 to 15: 17/03 - 14/04
 
 ### DHT Cooperative Mirroring with Consistency Protocol and Distributed Mutual Exclusion.
 
 ### Organisation
 
-The project work is to be undertaken in groups of 2-4 students - preferably the same groups as for projects 1 & 2.
+The project work is to be undertaken in groups of 3-4 students - preferably the same groups as for projects 1 & 2.
 
 Discussions among the groups are allowed, but the code handed in by the group should be the work of the group members - and not members of other groups.
 
@@ -56,7 +56,7 @@ The project assumes that you have read and understood the following sections in 
 - Section 5.3.3 - Mutual Exclusion Distributed algorithm (Coordination)
 - Section 7.5.1 - Remote-write & Replicated-write protocols (Consistency and Replication)
 
-Therefore the project builds on exercise in week 6 - Chord Distributed Hash Table (https://github.com/selabhvl/dat110public/blob/master/week6/week6.md)
+Therefore the project builds on exercise in week 6 - Chord Distributed Hash Table (https://github.com/selabhvl/dat110public/blob/master/week7/week7.md)
 
 The implementation is based on synchronous communication by using the Java RMI remote procedure call (RPC)
 The system works under these models and assumptions
