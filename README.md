@@ -56,7 +56,7 @@ The project assumes that you have read and understood the following sections in 
 - Section 5.3.3 - Mutual Exclusion Distributed algorithm (Coordination)
 - Section 7.5.1 - Remote-write & Replicated-write protocols (Consistency and Replication)
 
-Therefore the project builds on exercise in week 6 - Chord Distributed Hash Table (https://github.com/selabhvl/dat110public/blob/master/week7/week7.md)
+Therefore the project builds on exercise in week 7 - Chord Distributed Hash Table (https://github.com/selabhvl/dat110public/blob/master/week7/week7.md)
 
 The implementation is based on synchronous communication by using the Java RMI remote procedure call (RPC)
 The system works under these models and assumptions
