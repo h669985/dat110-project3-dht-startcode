@@ -162,7 +162,7 @@ The major task here is to implement the requestActiveNodesForFile() method in th
 The basic idea for remote write is that each file (data item) has a primary peer that is responsible for performing update and coordinating that other replicas perform the same update. Whenever a client wants to update a file, it has to locate the primary for this file and forward the update request to it. Therefore, only one process (peer) can perform update. The primary can then tell other peers holding a copy of this file to update.
 This arrangement is illustrated in the figure below.
 ![](assets/remote.png)
-We will implement this replicated-write protocol (remote-write) on top of the chord. One way to do this, is to tag a replica as the primary item before we distribute to the ring. The primaryServer variable in the Message class can be used for this purpose.
+We will implement this primary-based protocol (remote-write) on top of the chord. One way to do this, is to tag a replica as the primary item before we distribute to the ring. The primaryServer variable in the Message class can be used for this purpose.
 We can then implement this logic in the distributeReplicastoPeers() in the FileManager class.
 Subsequently, to locate the primary for a file, we need to first requestActiveNodesForFile(filename) and then iterate over the returned peers to find who holds the primary copy.
 The task first, is to modify the distributeReplicastoPeers() to randomly assign a primary peer to a file replica.
