@@ -33,18 +33,26 @@ public class ChordLookup {
 	
 	public NodeInterface findSuccessor(BigInteger key) throws RemoteException {
 		// ask this node to find the successor of key
-		
+
 		// get the successor of the node
-		
+		NodeInterface succ = node.getSuccessor();
+
 		// check that key is a member of the set {nodeid+1,...,succID} i.e. (nodeid+1 <= key <= succID) using the checkInterval
-		
+		boolean isMember = Util.checkInterval(key, node.getNodeID().add(BigInteger.ONE), succ.getNodeID());
+
 		// if logic returns true, then return the successor
-		
+		if (isMember) {
+			return succ;
+		}
 		// if logic returns false; call findHighestPredecessor(key)
-		
+		NodeInterface highest_pred = findHighestPredecessor(key);
+
 		// do highest_pred.findSuccessor(key) - This is a recursive call until logic returns true
-				
-		return null;					
+		if(highest_pred != null) {
+			return highest_pred.findSuccessor(key);
+		}
+
+		return null;
 	}
 	
 	/**
@@ -56,16 +64,23 @@ public class ChordLookup {
 	private NodeInterface findHighestPredecessor(BigInteger ID) throws RemoteException {
 		
 		// collect the entries in the finger table for this node
+		List<NodeInterface> table = node.getFingerTable();
 		
 		// starting from the last entry, iterate over the finger table
-		
-		// for each finger, obtain a stub from the registry
-		
-		// check that finger is a member of the set {nodeID+1,...,ID-1} i.e. (nodeID+1 <= finger <= key-1) using the ComputeLogic
-		
-		// if logic returns true, then return the finger (means finger is the closest to key)
-		
-		return (NodeInterface) node;			
+		for (int i = table.size() - 1; i >= 0; i--) {
+			// for each finger, obtain a stub from the registry
+			NodeInterface stub = table.get(i);
+
+			// check that finger is a member of the set {nodeID+1,...,ID-1} i.e. (nodeID+1 <= finger <= key-1) using the ComputeLogic
+			boolean isMember = Util.checkInterval(stub.getNodeID(), node.getNodeID().add(BigInteger.ONE), ID.subtract(BigInteger.ONE));
+
+			// if logic returns true, then return the finger (means finger is the closest to key)
+			if (isMember) {
+				return stub;
+			}
+		}
+
+		return null;
 	}
 	
 	public void copyKeysFromSuccessor(NodeInterface succ) {
